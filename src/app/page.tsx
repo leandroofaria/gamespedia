@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { BsArrowRightSquare } from 'react-icons/bs'
+import { Input } from "@/components/input";
 
 
 async function getGame () {
@@ -41,6 +42,9 @@ export default async function Home() {
             </div>
           </section>
         </Link>
+        <Input></Input>
+
+        
       </Container>
     </main>
   )
