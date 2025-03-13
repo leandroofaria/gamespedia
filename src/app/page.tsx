@@ -16,9 +16,19 @@ async function getGame () {
   }
 }
 
+async function getGamesData() {
+  try {
+    const res = await fetch(`${process.env.NEXT_API_URL}/next-api/?api=games`, {next: {revalidate:320}})
+    return res.json()
+  } catch {
+    throw new Error("Falha ao pegar os dados")
+  }
+}
+
 export default async function Home() {
 
   const game: GameProps = await getGame()
+  const data = await getGamesData()
 
   return (
     <main className="w-full">
@@ -42,7 +52,11 @@ export default async function Home() {
             </div>
           </section>
         </Link>
-        <Input></Input>
+        <Input/>
+
+        <h2 className="">Jogos para conhecer:</h2>
+
+
 
         
       </Container>
