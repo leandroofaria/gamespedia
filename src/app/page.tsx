@@ -5,6 +5,7 @@ import Image from 'next/image'
 
 import { BsArrowRightSquare } from 'react-icons/bs'
 import { Input } from "@/components/input";
+import { GameCard } from "@/components/gameCard";
 
 
 async function getGame () {
@@ -28,7 +29,7 @@ async function getGamesData() {
 export default async function Home() {
 
   const game: GameProps = await getGame()
-  const data = await getGamesData()
+  const data: GameProps[] = await getGamesData()
 
   return (
     <main className="w-full">
@@ -56,6 +57,11 @@ export default async function Home() {
 
         <h2 className="">Jogos para conhecer:</h2>
 
+        <section className="grid gap-7 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {data.map( (item) => (
+            <GameCard key={item.id} dados={item}/>
+          ))}
+        </section>
 
 
         

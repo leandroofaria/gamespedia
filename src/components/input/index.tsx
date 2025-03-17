@@ -1,18 +1,18 @@
 "use client"
-import { useRouter } from "next/navigation" // ✅ Correção: importar do "next/navigation"
+import { useRouter } from "next/navigation" 
 import { FormEvent, useState } from "react"
 import { FiSearch } from 'react-icons/fi'
 
 export function Input() {
     const [input, setInput] = useState("")
-    const router = useRouter() // ✅ Agora sem erro
+    const router = useRouter() 
 
     function handleSearch(event: FormEvent) {
-        event.preventDefault(); // ✅ Correção: adicionar parênteses
+        event.preventDefault();
 
-        if (input.trim() === "") return; // ✅ Evita redirecionamento se o input estiver vazio
+        if (input.trim() === "") return; 
 
-        router.push(`/game/search/${input}`) // ✅ Mantido corretamente
+        router.push(`/game/search/${input}`)
     }
 
     return (
@@ -28,7 +28,7 @@ export function Input() {
                 className="bg-slate-100 outline-none w-11/12"
             />
             <button type="submit">
-                <FiSearch size={24} color="#9D44B5"/>
+                <FiSearch size={24} color="#9D44B5"/>   
             </button>
         </form>
     )
