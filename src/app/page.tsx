@@ -59,7 +59,7 @@ export default async function Home() {
 
         <section className="grid gap-7 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {data.map( (item) => (
-            <GameCard key={item.id} dados={item}/>
+            <GameCard key={item.id} data={item}/>
           ))}
         </section>
 
