@@ -4,6 +4,8 @@ import { Input } from '@/components/input'
 import { GameCard } from '@/components/gameCard'
 
 async function getData(title: string){
+  const decodeTitle = decodeURI(title)
+
   try{
     const res = await fetch(`${process.env.NEXT_API_URL}/next-api/?api=game&title=${title}`)
     return res.json();
